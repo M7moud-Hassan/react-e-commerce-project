@@ -1,0 +1,8 @@
+install packages :
+  * react-router-dom
+  * bootstrap
+  * axios [for api]=> make it easy to place baseURL in one place and handle interceptors
+  * redux
+  * react-redux
+  
+
