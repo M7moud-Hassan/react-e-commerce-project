@@ -9,3 +9,7 @@ Abdelmoughiss Tasks:
   # handle user Modules .
   
 
+General Notes :
+  # when call API :
+    axiosInstance.get/post/.....("/user").then(res=>).catch(error=>)
+
