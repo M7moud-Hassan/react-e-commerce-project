@@ -8,32 +8,16 @@ function Login() {
     const[user,setUser]=useState({
         email:"",
         password:"",
+        rememberMe:false
     })
     const[message,setMessage]=useState("");
-    // const[isUserChange,setIsUserChaged]=useState({
-    //     email:false,
-    //     password:false
-    // })
-    // const[userError,setUserError]=useState({
-    //     email:null,
-    //     password:null
-    // })
     let changeUserData = (e)=>{
         if(e.target.name=='email'){
-            // setIsUserChaged({...isUserChange,userName:true});
             setUser({...user,email:e.target.value});
-            // if(e.target.value.trime().length==0){
-            //     setUserError({...userError,email:"Email is required"})
-            // }else{
-            //     setUserError({...userError,email:null})
-            // }
-        }else{
+        }else if(e.target.name=='password'){
             setUser({...user,password:e.target.value});
-            // if(e.target.value.trime().length==0){
-            //     setUserError({...userError,password:"password is required"})
-            // }else{
-            //     setUserError({...userError,password:null})
-            // }
+        }else{
+            setUser({...user,rememberMe:!e.target.checked});
         }
     }
     let [passwordType,setPasswordType] = useState("password")
@@ -52,10 +36,9 @@ function Login() {
                 return u.email == user.email && u.password == user.password;
             })
             if(foundedUser){
-                // alert("found");
                 setMessage("Login Successfully");
+                user.rememberMe? localStorage.setItem("userId",foundedUser.id):sessionStorage.setItem("userId",foundedUser.id);
             }else{
-                // alert("Not Found");
                 setMessage("# E-mail or password is incorrect");
             }
         })
@@ -81,10 +64,16 @@ function Login() {
                             <div className="input-group mb-2">
                                 <input type={passwordType} name='password' id='password' placeholder="Enter Your password" onChange={(e)=>changeUserData(e)} value={user.password} className={` form-control `} />
                                 <div className="input-group-prepend">
-                                    <div className="input-group-text" onClick={()=>passwordToggle()} style={{cursor: "pointer"}}>{passBtnKeyword}</div>
+                                    <div className={`input-group-text ${style.btnLabel}`} onClick={()=>passwordToggle()} style={{cursor: "pointer"}}>{passBtnKeyword}</div>
                                 </div>
                             </div>
                             {/* <small className='d-block text-danger'>{userError.password}</small> */}
+                        </div>
+                        <div className="form-check mt-3">
+                            <input className={`form-check-input ${style.rememberMe}`} onChange={(e)=>changeUserData(e)}  type="checkbox" id="rememberMe" />
+                            <label className="form-check-label" htmlFor="rememberMe">
+                                Remember Me .
+                            </label>
                         </div>
                         <div className='form-group mb-2 mt-3'>
                             <input type="submit" disabled={user.email.length==0 || user.password.length==0}  value="Create Account" className={`${style.formBtn} form-control`} />

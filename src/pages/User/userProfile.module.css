@@ -1,0 +1,80 @@
+.outerContainer{
+    padding: 0px;
+    margin: 0px;
+}
+.imageProfile{
+    border-radius: 50%;
+    height: 250px;
+    width:  250px;
+    border: 3px solid  #005437;
+    display: block;
+    margin: 0px auto;
+    padding: 5px;
+    box-shadow: 1px 1px 7px  #005437;
+}
+.profileHeader{
+    color: black;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    border-bottom: 5px solid #005437;
+}
+.profileHeader p{
+    color: gray;
+}
+.profileSection{
+    padding: 50px 20px;
+    padding-left: 50px;
+    border-left: 5px solid #005437;
+    color: white;
+    min-height: 700px;
+    background-color: #f3f4f8;
+}
+.fieldSection{
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px grey;
+    padding: 30px;
+    color: #005437;
+    margin-bottom: 20px;
+
+}
+.userNameEmailSection{
+    color: #005437;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px 0px;
+    margin-top: 30px;
+    border-bottom: 1px solid #005437;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.userNameEmailSection>div:nth-child(2){
+    font-size: 18px;
+    color: gray;
+    font-weight: 500px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.btnLabel{
+    background-color: #005437;
+    color: white;
+    text-align: center;
+    border-radius: 0px 10px 10px 0px;
+}
+.hintLabel{
+    background-color: white;
+    color: #005437;
+    text-align: center;
+    border: 2px solid #005437;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 4px solid #005437;
+}
+
+.saveChangeButton{
+    background-color: #005437;
+    color: white;
+}
+.saveChangeButton:disabled{
+    background-color: white;
+    color: #005437;
+    border: 2px solid #005437;
+}

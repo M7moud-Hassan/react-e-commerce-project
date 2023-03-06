@@ -175,7 +175,7 @@ function Register() {
                             <label className="sr-only" htmlFor="phone">Phone</label>
                             <div className="input-group mb-2">
                                 <div className="input-group-prepend">
-                                    <div className="input-group-text">+20</div>
+                                    <div className={`${style.hintLabel} input-group-text`}>+20</div>
                                 </div>
                                 <input type="text" name='phone' id='phone' placeholder="Enter Your Phone Number" onChange={(e)=>changeUserData(e)} value={user.phone} className={` ${isUserChange.phone==true && (userError.phone==null ? 'is-valid':'is-invalid') } form-control `} />
                             </div>
@@ -209,7 +209,7 @@ function Register() {
                             <div className="input-group mb-2">
                                 <input type={passwordType} name='password' id='password' placeholder="Enter Your password" onChange={(e)=>changeUserData(e)} value={user.password} className={` ${isUserChange.password==true && (userError.password==null ? 'is-valid':'is-invalid') } form-control `} />
                                 <div className="input-group-prepend">
-                                    <div className="input-group-text" onClick={()=>passwordToggle()} style={{cursor: "pointer"}}>{passBtnKeyword}</div>
+                                    <div className={`input-group-text ${style.btnLabel}`}onClick={()=>passwordToggle()} style={{cursor: "pointer"}}>{passBtnKeyword}</div>
                                 </div>
                             </div>
                             <small className='d-block text-danger'>{userError.password}</small>

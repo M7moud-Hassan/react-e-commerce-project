@@ -33,3 +33,20 @@
     border-radius: 10px;
     box-shadow: 1px 1px 5px #340744;
 }
+.rememberMe:checked{
+    background-color: #340744;
+}
+.btnLabel{
+    background-color: #340744;
+    color: white;
+    text-align: center;
+    border-radius: 0px 10px 10px 0px;
+}
+.hintLabel{
+    background-color: white;
+    color: #340744;
+    text-align: center;
+    border: 2px solid #340744;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 4px solid #340744;
+}

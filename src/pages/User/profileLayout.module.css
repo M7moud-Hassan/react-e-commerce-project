@@ -1,0 +1,45 @@
+.outerContainer{
+    padding: 0px;
+    margin: 0px;
+}
+.linksSection{
+    background-color: #005437;
+    padding: 50px 20px;
+    text-align: center;
+    border-right: 5px solid #13e374;
+    color: white;
+    height: 800px;
+    margin-right: 0px;
+}
+.sideLink{
+    background-color: white;
+    padding: 5px;
+    padding-left: 15px;
+    text-align: start;
+    border-radius: 3px 20px 20px 3px;
+    border: 2px solid #13e374;
+    margin-bottom: 10px;
+}
+.navLink{
+    text-decoration: none;
+    color: #005437;
+    font-size: 20px;
+    display: block;
+}
+.sideLink:hover{
+    background-color: #005437;
+    padding: 5px;
+    padding-left: 30px;
+    text-align: start;
+    border: 2px solid gray;
+    transition: all .3s ease-in-out;
+    color: white;
+}
+.sideLink:hover .navLink{
+    color: white;
+    transition: all .3s ease-in-out;
+}
+.redLeftBorder{
+    border-left: 2px solid orange;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
