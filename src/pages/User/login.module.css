@@ -1,0 +1,35 @@
+.loginPageSection{
+    background-image: url('../../assets/images/login.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 700px; */
+}
+.registerBgColor{
+    background-color: #340744;
+    opacity: (.1);
+}
+.formBgColor{
+    background-color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 30px;
+    padding-top: 10px;
+}
+.formBtn{
+    background-color: #340744;
+    color: white;
+}
+
+.formBtn:disabled{
+  border: 1px solid #340744;
+  background-color: white;
+  color: #340744;
+}
+.resiterationHeader{
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #340744;
+}
