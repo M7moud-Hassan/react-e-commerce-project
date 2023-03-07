@@ -12,6 +12,7 @@ function Register() {
         email:"",
         image:"",
         password:"",
+        confirmPassword:"",
         phone:"",
         role:"user",
         isDeleted:false
@@ -22,6 +23,7 @@ function Register() {
         email:false,
         image:false,
         password:false,
+        confirmPassword:false,
         phone:false,
     })
     const[userError,setUserError]=useState({
@@ -30,6 +32,7 @@ function Register() {
         email:null,
         image:null,
         password:null,
+        confirmPassword:null,
         phone:null,
     })
     let changeUserData = (e)=>{
@@ -100,6 +103,25 @@ function Register() {
                 setUserError({...userError,password:null});
             }
         }
+        else if(e.target.name=='confirmPassword'){
+            let confirmPasswordValue = e.target.value; 
+            setIsUserChaged({...isUserChange,confirmPassword:true});
+            setUser({...user,confirmPassword:confirmPasswordValue});
+            // if(confirmPasswordValue.trim().length<6){
+            //     setUserError({...userError,confirmPassword:"Confirm password at least 6 characters !"});
+            // }
+            // if(userError.password==null && isUserChange.password==true && user.password!==user.confirmPassword){
+            //     setUserError({...userError,confirmPassword:"Confirm password must match password!"});
+            // }
+            // else if(userError.password==null && isUserChange.password==true && user.password==user.confirmPassword){
+            //     setIsUserChaged({...isUserChange,confirmPassword:true});
+            //     setUserError({...userError,confirmPassword:null});
+            // }
+            // else{
+            //     setUserError({...userError,confirmPassword:null});
+            //     setIsUserChaged({...isUserChange,confirmPassword:false});
+            // }
+        }
     }
     function uploadImage( e) {
         const files = e.target.files;
@@ -115,7 +137,7 @@ function Register() {
       };
     const isvalidForm = () => {
         if(!isUserChange.userName || !isUserChange.email || !isUserChange.phone 
-            || !isUserChange.password  ||  !isUserChange.gender ||  !isUserChange.image ){
+            || !isUserChange.password || !isUserChange.confirmPassword  ||  !isUserChange.gender ||  !isUserChange.image ){
             return false
         }
         if(userError.userName!=null || userError.email!=null  || userError.phone!=null  
@@ -131,8 +153,17 @@ function Register() {
         passElem.type == "password"?setPasswordType("text"):setPasswordType("password");
         passElem.type == "password"?setPassBtnKeyword("Hide"):setPassBtnKeyword("Show");
     }
+    let [confirmPasswordType,setconfirmPasswordType] = useState("password")
+    let [confirmPassBtnKeyword,setconfirmPassBtnKeyword] = useState("Show");
+    let confirmPasswordToggle = ()=>{
+        let passElem = document.getElementById("confirmPassword");
+        passElem.type == "password"?setconfirmPasswordType("text"):setconfirmPasswordType("password");
+        passElem.type == "password"?setconfirmPassBtnKeyword("Hide"):setconfirmPassBtnKeyword("Show");
+    }
+
     let register = (e) => {
         e.preventDefault();
+        if(user.password==user.confirmPassword){
         axiosInstance.get("User")
             .then(res => {
                 let emailIsExists = res.data.find(currentUser =>{return currentUser.email == user.email});
@@ -152,6 +183,9 @@ function Register() {
                 }
             })
             .catch(error=> alert("Error !"));
+        }else{
+            alert("password and confirm not matched")
+        }
     }
     return (
         <div className={`d-flex h-100 ${style.registerBgColor}`}>
@@ -195,8 +229,8 @@ function Register() {
                                 <option value="-1">Select Your Gender ...</option>
                                     {
                                         genderList.map(
-                                            (gen, index) => <option key={index} value={gen}>{gen}</option>
-                                        )}
+                                            (gen, index) =>  <option key={index} value={gen}>{gen}</option>)
+                                    }
                             </select>
                             <small className='d-block text-danger'>{userError.gender}</small>
                         </div>
@@ -213,6 +247,17 @@ function Register() {
                                 </div>
                             </div>
                             <small className='d-block text-danger'>{userError.password}</small>
+                        </div>
+
+                        <div className="col-auto mb-2">
+                            <label className="sr-only" htmlFor="confirmPassword">Confirm Password</label>
+                            <div className="input-group mb-2">
+                                <input type={confirmPasswordType} name='confirmPassword' id='confirmPassword' placeholder="Confirm Your password" onChange={(e)=>changeUserData(e)} value={user.confirmPassword} className={`form-control`} />
+                                <div className="input-group-prepend">
+                                    <div className={`input-group-text ${style.btnLabel}`}onClick={()=>confirmPasswordToggle()} style={{cursor: "pointer"}}>{passBtnKeyword}</div>
+                                </div>
+                            </div>
+                            <small className='d-block text-danger'>{userError.confirmPassword}</small>
                         </div>
 
                         <div className='form-group mb-2 mt-3'>

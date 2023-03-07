@@ -8,6 +8,9 @@ import Register from './pages/User/Register';
 import SignOut from './pages/User/signOut';
 import UserProfile from './pages/User/userProfile';
 import UserProfileLayout from './pages/User/userProfileLayout';
+import UserCard from './pages/User/userCard';
+import AllUsers from './pages/User/AllUsers';
+import Users from './pages/User/users';
 
 
 function App() {
@@ -22,6 +25,9 @@ function App() {
       <Route path='/signOut/*' element={<SignOut/>} />
       <Route path='/profile/:userId' element={<UserProfile/>} />
       <Route path='/userProfile/*' element={<UserProfileLayout/>} />
+      <Route path='/card' element={<UserCard/>} />
+      <Route path='/allUsers' element={<AllUsers/>} />
+      <Route path='/Users' element={<Users/>} />
       <Route path='*' element={<PageNotFound/>} />
     </Routes>
     </BrowserRouter>
