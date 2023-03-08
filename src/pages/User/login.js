@@ -50,6 +50,7 @@ function Login() {
         <div className={`d-flex h-100 ${style.registerBgColor}`}>
             <div className={`${style.loginPageSection} w-25`}></div>
             <div className={`w-50 m-auto mt-5 mb-5 pb-5 pt-3  `}>
+                <div className='pt-5 pb-5'>
                 <div className={`w-100 m-auto ${style.formBgColor}  shadow  p-5 pt-5 mt-5  `}>
                 <h3 className={`${style.resiterationHeader}  mb-3`}>Login Here ...</h3>
                 <small className='d-block text-danger pt-2 pb-2'>{message}</small>
@@ -88,6 +89,7 @@ function Login() {
                         </div>
                         </div>
                     </form>
+                </div>
                 </div>
             </div>
         </div>

@@ -188,9 +188,9 @@ function Register() {
         }
     }
     return (
-        <div className={`d-flex h-100 ${style.registerBgColor}`}>
+        <div className={`d-flex  h-100 ${style.registerBgColor}`}>
             <div className={`${style.loginPageSection} w-25`}></div>
-            <div className={`w-50 m-auto mt-0 pt-3  `}>
+            <div className={`w-50 m-auto mt-0 pt-3 pb-3 `}>
                 <div className={`w-100 m-auto ${style.formBgColor}  shadow  p-4 pt-5 pb-5  `}>
                 <h3 className={`${style.resiterationHeader} `}>Create Your Account Free ....</h3>
                 <small className='d-block text-danger pt-2 pb-2'>{message}</small>

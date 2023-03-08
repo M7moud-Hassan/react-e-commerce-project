@@ -7,22 +7,33 @@ import style from './profileLayout.module.css';
 import { useEffect, useState } from "react"
 
 function UserProfileLayout() {
-    const [id,setId]=useState();
+    const [id,setId]=useState("0");
     let navigate = useNavigate();
+    const [local,setLocal] = useState(localStorage.getItem("userId"));
+    const [session,setSession] = useState(sessionStorage.getItem("userId"));
     
-    useEffect(()=>{
-        setId(
-            localStorage.getItem("userId")!=undefined ?
-             localStorage.getItem("userId"):
-             (sessionStorage.getItem("userId")!=undefined?sessionStorage.getItem("userId"):100)
-             );
-        // alert(`id = ${id}`)
+    // useEffect(()=>{
+    //     setId(
+    //         localStorage.getItem("userId")!=undefined ?
+    //          localStorage.getItem("userId"):
+    //          (sessionStorage.getItem("userId")!=undefined?sessionStorage.getItem("userId"):100)
+    //          );
+    //     // alert(`id = ${id}`)
+    //     if(+id>10){
+    //         navigate(`profile/${id}`);
+    //     }else{
+    //         navigate(`login`);
+    //     }
+    // },[]);
+      useEffect(()=>{
+        setId(local!=undefined?local:session);
         if(+id>10){
             navigate(`profile/${id}`);
         }else{
             navigate(`login`);
         }
-    },[]);
+    },[id]);
+    
     return (
         <>
             <div className={`container-fluid ${style.outerContainer}`}>
